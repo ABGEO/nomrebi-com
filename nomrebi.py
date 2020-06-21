@@ -5,6 +5,7 @@ Get information about phone numbers stored in the Nomrebi.com database
 """
 
 import json
+import signal
 
 import requests
 
@@ -18,6 +19,10 @@ __email__ = "me@abgeo.dev"
 __status__ = "Production"
 
 API_URL = 'https://simpleapi.info/apps/numbers-info/info.php?results=json'
+
+
+def keyboard_interrupt_handler(s, f):
+    exit(0)
 
 
 def find_phone_data(phone_number):
@@ -61,4 +66,5 @@ def main():
 
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, keyboard_interrupt_handler)
     main()
