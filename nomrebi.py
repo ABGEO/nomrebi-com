@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+"""
+Get information about phone numbers stored in the Nomrebi.com database
+"""
+
 import json
 
 import requests
