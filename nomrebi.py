@@ -18,6 +18,16 @@ __maintainer__ = "Temuri Takalandze"
 __email__ = "me@abgeo.dev"
 __status__ = "Production"
 
+
+class Colors:
+    HEADER = '\033[90m'
+    FAIL = '\033[91m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    OKBLUE = '\033[94m'
+    ENDC = '\033[0m'
+
+
 API_URL = 'https://simpleapi.info/apps/numbers-info/info.php?results=json'
 
 
@@ -45,22 +55,25 @@ def main():
     :return: Void.
     """
 
+    print(Colors.HEADER)
     print(' _   _                          _     _                      ')
     print('| \ | | ___  _ __ ___  _ __ ___| |__ (_)  ___ ___  _ __ ___  ')
     print('|  \| |/ _ \| \'_ ` _ \| \'__/ _ \ \'_ \| | / __/ _ \| \'_ ` _ \ ')
     print('| |\  | (_) | | | | | | | |  __/ |_) | || (_| (_) | | | | | |')
     print('|_| \_|\___/|_| |_| |_|_|  \___|_.__/|_(_)___\___/|_| |_| |_|')
-    print('\n                                    V' + __version__ + ' Created By @ABGEO')
+    print(f'\nV{__version__}')
+    print('                                           Created By @ABGEO')
+    print(Colors.ENDC)
 
     phone = input('\nშეიყვანეთ მობილურის ნომერი: ')
     while '' != phone:
         items = find_phone_data(phone)
         if 0 != len(items):
-            print('\nამ ნომერზე მოიძებნა შემდეგი მონაცემები:')
+            print(f'\n{Colors.OKGREEN}ამ ნომერზე მოიძებნა შემდეგი მონაცემები:\n{Colors.ENDC}')
             for item in items:
-                print('   - ' + item)
+                print(f'{Colors.OKBLUE}   - {item}{Colors.ENDC}')
         else:
-            print('\nჩანაწერი ამ ნომერზე ვერ მოიძებნა!')
+            print(f'\n{Colors.FAIL}ჩანაწერი ამ ნომერზე ვერ მოიძებნა!{Colors.ENDC}')
 
         phone = input('\nშეიყვანეთ სხვა მობილურის ნომერი\nან დააჭირეთ Enter-ს დასასრულებლად: ')
 
