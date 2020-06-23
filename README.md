@@ -1,9 +1,9 @@
-# nomrebi-com
+# nomrebi-py
 
 Get information about phone numbers stored in the Nomrebi.com database
 
-[![GitHub release](https://img.shields.io/github/release/ABGEO/nomrebi-com.svg)](https://github.com/ABGEO/nomrebi-com/releases)
-[![GitHub license](https://img.shields.io/github/license/ABGEO/nomrebi-com.svg)](https://github.com/ABGEO/nomrebi-com/blob/1.x/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/ABGEO/nomrebi-py.svg)](https://github.com/ABGEO/nomrebi-py/releases)
+[![GitHub license](https://img.shields.io/github/license/ABGEO/nomrebi-py.svg)](https://github.com/ABGEO/nomrebi-py/blob/1.x/LICENSE)
 
 ## Installation
 
