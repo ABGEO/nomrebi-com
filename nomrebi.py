@@ -28,7 +28,7 @@ class Colors:
     ENDC = '\033[0m'
 
 
-API_URL = 'https://simpleapi.info/apps/numbers-info/info.php?results=json'
+API_URL = 'https://simpleapi.info/apps/numbers-info/info.php?results=json&source=widget&version=2&noCache=1'
 
 
 def keyboard_interrupt_handler(s, f):
