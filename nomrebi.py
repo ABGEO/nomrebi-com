@@ -28,7 +28,7 @@ class Colors:
     ENDC = '\033[0m'
 
 
-API_URL = 'https://simpleapi.info/apps/numbers-info/info.php?results=json&source=widget&version=2&noCache=1'
+API_BASE_URL = 'https://nomrebi-api.herokuapp.com/api'
 
 
 def keyboard_interrupt_handler(s, f):
@@ -42,10 +42,9 @@ def find_phone_data(phone_number):
     :param phone_number: The phone number to find data for.
     :return: Found items or an empty list.
     """
-    response = requests.post(API_URL, data={'number': phone_number}, stream=True)
-    response_converted = json.loads(response.content)
+    response = requests.get(API_BASE_URL + '/number-info/' + phone_number)
 
-    return response_converted['items'] if 'yes' == response_converted['res'] else []
+    return json.loads(response.content)
 
 
 def main():
