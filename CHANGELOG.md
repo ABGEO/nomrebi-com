@@ -1,8 +1,13 @@
 # nomrebi-py
 
+## [v1.3.0] - 2020-09-29
+
+### Added
+- Feature to pass number by argument.
+
 ## [v1.2.0] - 2020-09-04
 
-### UPDATED
+### Updated
 - API URL.
 
 ## [v1.1.1] - 2020-07-24
