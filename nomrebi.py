@@ -6,6 +6,7 @@ Get information about phone numbers stored in the Nomrebi.com database
 
 import json
 import signal
+import sys
 
 import requests
 
@@ -65,8 +66,14 @@ def main():
     print('                                        Created By @ABGEO')
     print(Colors.ENDC)
 
-    phone = input('\nშეიყვანეთ მობილურის ნომერი: ')
+    if 2 == len(sys.argv):
+        print(f'\n{Colors.HEADER}მიმდინარეობს მონაცემების ძიება... დაელოდეთ\n{Colors.ENDC}')
+        phone = sys.argv[1]
+    else:
+        phone = input('\nშეიყვანეთ მობილურის ნომერი: ')
+
     while '' != phone:
+        print(f'\n{Colors.HEADER}მიმდინარეობს მონაცემების ძიება... დაელოდეთ\n{Colors.ENDC}')
         items = find_phone_data(phone)
         if 0 != len(items):
             print(f'\n{Colors.OKGREEN}ამ ნომერზე მოიძებნა შემდეგი მონაცემები:\n{Colors.ENDC}')
