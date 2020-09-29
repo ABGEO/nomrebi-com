@@ -19,6 +19,9 @@ Run the [nomrebi.py](nomrebi.py) file:
 or
 - `python nomrebi.py`
 
+Also, you can pass number as argument:
+- `./nomrebi.py {phone_number_goes_here}`
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for details.
