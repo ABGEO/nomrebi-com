@@ -26,6 +26,11 @@ Also, you can pass number as argument:
 
 Please see [CHANGELOG](CHANGELOG.md) for details.
 
+## Related Projects
+
+- [nomrebi-app](https://github.com/ABGEO/nomrebi-app) - Android app for getting information about phone numbers stored 
+in the Nomrebi.com database 
+
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
