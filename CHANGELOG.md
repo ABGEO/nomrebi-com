@@ -1,5 +1,10 @@
 # nomrebi-py
 
+## [v1.4.0] - 2020-10-01
+
+### Updated
+- Due to external API changes.
+
 ## [v1.3.0] - 2020-09-29
 
 ### Added
