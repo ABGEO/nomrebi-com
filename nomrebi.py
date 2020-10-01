@@ -67,7 +67,6 @@ def main():
     print(Colors.ENDC)
 
     if 2 == len(sys.argv):
-        print(f'\n{Colors.HEADER}მიმდინარეობს მონაცემების ძიება... დაელოდეთ\n{Colors.ENDC}')
         phone = sys.argv[1]
     else:
         phone = input('\nშეიყვანეთ მობილურის ნომერი: ')
@@ -75,10 +74,10 @@ def main():
     while '' != phone:
         print(f'\n{Colors.HEADER}მიმდინარეობს მონაცემების ძიება... დაელოდეთ\n{Colors.ENDC}')
         items = find_phone_data(phone)
-        if 0 != len(items):
+        if 0 != len(items['names']):
             print(f'\n{Colors.OKGREEN}ამ ნომერზე მოიძებნა შემდეგი მონაცემები:\n{Colors.ENDC}')
-            for item in items:
-                print(f'{Colors.OKBLUE}   - {item}{Colors.ENDC}')
+            for name in items['names']:
+                print(f'{Colors.OKBLUE}   - {name}{Colors.ENDC}')
         else:
             print(f'\n{Colors.FAIL}ჩანაწერი ამ ნომერზე ვერ მოიძებნა!{Colors.ENDC}')
 
