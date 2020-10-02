@@ -10,6 +10,8 @@ import sys
 
 import requests
 
+import update_manager as um
+
 __author__ = "Temuri Takalandze"
 __copyright__ = "Copyright 2020, Temuri Takalandze"
 __credits__ = ["Temuri Takalandze"]
@@ -86,4 +88,5 @@ def main():
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, keyboard_interrupt_handler)
+    um.check_update()
     main()
