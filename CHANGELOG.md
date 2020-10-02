@@ -1,5 +1,10 @@
 # nomrebi-py
 
+## [v1.5.0] - 2020-10-02
+
+### Added
+- Update Manager.
+
 ## [v1.4.0] - 2020-10-01
 
 ### Updated

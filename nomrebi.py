@@ -10,11 +10,13 @@ import sys
 
 import requests
 
+import update_manager as um
+
 __author__ = "Temuri Takalandze"
 __copyright__ = "Copyright 2020, Temuri Takalandze"
 __credits__ = ["Temuri Takalandze"]
 __license__ = "MIT"
-__version__ = "1.4.0"
+__version__ = "1.5.0"
 __maintainer__ = "Temuri Takalandze"
 __email__ = "me@abgeo.dev"
 __status__ = "Production"
@@ -86,4 +88,5 @@ def main():
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, keyboard_interrupt_handler)
+    um.check_update()
     main()
