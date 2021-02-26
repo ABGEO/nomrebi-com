@@ -6,7 +6,6 @@ Get information about phone numbers stored in the Nomrebi.com database
 
 import json
 import signal
-import sys
 
 import requests
 
@@ -16,7 +15,7 @@ __author__ = "Temuri Takalandze"
 __copyright__ = "Copyright 2020, Temuri Takalandze"
 __credits__ = ["Temuri Takalandze"]
 __license__ = "MIT"
-__version__ = "1.5.0"
+__version__ = "1.6.0"
 __maintainer__ = "Temuri Takalandze"
 __email__ = "me@abgeo.dev"
 __status__ = "Production"
@@ -38,16 +37,47 @@ def keyboard_interrupt_handler(s, f):
     exit(0)
 
 
-def find_phone_data(phone_number):
+def find_phone_data(phone_number, u_phone, u_id, u_token):
     """
     Get information about given phone number from the API.
 
     :param phone_number: The phone number to find data for.
+    :param u_phone: User phone number.
+    :param u_id: User ID.
+    :param u_token: User auth Token.
     :return: Found items or an empty list.
     """
-    response = requests.get(API_BASE_URL + '/number-info/' + phone_number)
+    response = requests.get(API_BASE_URL + '/number-info/' + phone_number,
+                            params={'u_phone': u_phone, 'u_id': u_id, 'u_token': u_token})
 
     return json.loads(response.content)
+
+
+def authenticate():
+    """
+    Make an authentication request the API.
+    :return: Authentication data.
+    """
+
+    u_phone = input('აპლიკაციით სარგებლობისთვის შეიყვანეთ თქვენი ტელეფონის ნომერი: ')
+    response = requests.get(API_BASE_URL + '/authenticate/' + u_phone)
+    response = json.loads(response.content)
+
+    if response['authenticated']:
+        response['data']['phone'] = u_phone
+        return response['data']
+
+    if response['sms_sent']:
+        sms_code = input('შეიყვანეთ მიღებული SMS კოდი: ')
+
+        response = requests.get(API_BASE_URL + '/authenticate/' + u_phone + '/sms/' + sms_code)
+        response = json.loads(response.content)
+
+        if response['valid']:
+            response['data']['phone'] = u_phone
+            return response['data']
+
+    return {None, None, None}
 
 
 def main():
@@ -67,15 +97,14 @@ def main():
     print(f'\nV{__version__}')
     print('                                        Created By @ABGEO')
     print(Colors.ENDC)
+    print("\n")
 
-    if 2 == len(sys.argv):
-        phone = sys.argv[1]
-    else:
-        phone = input('\nშეიყვანეთ მობილურის ნომერი: ')
+    u_id, u_token, u_phone = authenticate().values()
+    phone = input('\nშეიყვანეთ მოსაძებნი მობილურის ნომერი: ')
 
     while '' != phone:
         print(f'\n{Colors.HEADER}მიმდინარეობს მონაცემების ძიება... დაელოდეთ\n{Colors.ENDC}')
-        items = find_phone_data(phone)
+        items = find_phone_data(phone, u_phone, u_id, u_token)
         if 0 != len(items['names']):
             print(f'\n{Colors.OKGREEN}ამ ნომერზე მოიძებნა შემდეგი მონაცემები:\n{Colors.ENDC}')
             for name in items['names']:

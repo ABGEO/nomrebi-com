@@ -1,5 +1,10 @@
 # nomrebi-py
 
+## [v1.6.0] - 2021-02-26
+
+### Added
+- API Authentication feature.
+
 ## [v1.5.0] - 2020-10-02
 
 ### Added
