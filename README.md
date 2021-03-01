@@ -1,5 +1,7 @@
 # nomrebi-py
 
+**This project is unmaintained. Please, use the web application: [ABGEO/nomrebi-web](https://github.com/ABGEO/nomrebi-web)**
+
 Get information about phone numbers stored in the Nomrebi.com database
 
 [![GitHub release](https://img.shields.io/github/release/ABGEO/nomrebi-py.svg)](https://github.com/ABGEO/nomrebi-py/releases)
